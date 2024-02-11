@@ -1,0 +1,43 @@
+class Book {
+
+    constructor(title, author, ISBN) {
+      this.title = title;
+      this.author = author;
+      this.ISBN = ISBN;
+    }
+  }
+  
+  class Library {
+    constructor(list) {
+      // create empty arr
+      this.list = list || [];
+    }
+    addBook(newBook) {
+      this.list.push(newBook);
+    }
+    removeBook(delBook) {
+      for(let book of this.list) {
+        let index = this.list.indexOf(book);
+        if(book === delBook) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    displayAllBooks() {
+      let i = 1;
+      for(let book of this.list) {
+        console.log(`${i}) Title: ${book.title} | Author: ${book.author} | ISNB: ${book.ISBN}`);
+        ++i;
+      }
+    }
+  }
+  
+  const newBook1 = new Book("Da", "DADA", "1332423");
+  const newBook2 = new Book("dadada", "dada", "python");
+  const lib = new Library();
+  lib.addBook(newBook1);
+  lib.addBook(newBook2);
+  lib.removeBook(newBook1)
+  lib.displayAllBooks();
+  
+  
